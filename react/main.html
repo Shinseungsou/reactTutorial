@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- <link type="text/css" href="./css/index.css"/> -->
+    <!-- <script type="text/babel" src="./scripts/board.js"></script> -->
+    <style type="text/css">
+    .navigation{
+      float: left;
+      text-align: center;
+      margin-right: 30px;
+      padding: 10px;
+      border-right: solid 1px;
+      border-bottom: solid 1px;
+      height: auto;
+      width: 200px;
+    }
+    .nav-item{
+      padding: 5px;
+    }
+    .nav-header{
+      text-align: center;
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+    </style>
+
+  </head>
+  <body>
+    <div id="container"></div>
+    <!-- script type="text/babel" src="scripts/example.js"></script -->
+    <script type="text/babel">
+      var Boardjs = require('./scripts/board');
+      var Navigation = React.createClass({
+        render: function(){
+          return (
+              <div className="navigation">
+                <NavigationHeader/>
+                <NavItems/>
+                <NavItems/>
+                <NavItems/>
+                <NavItems/>
+                <NavItems/>
+                <NavItems/>
+              </div>
+            );
+        }
+      });
+
+      var NavigationHeader = React.createClass({
+        render: function(){
+            return (
+            <div className="nav-header">
+              navigation header<br/>
+              logo<br/>
+
+            </div>
+          );
+        }
+      });
+
+      var NavItems = React.createClass({
+        render: function(){
+          return (
+              <div className="nav-item">item</div>
+            );
+        }
+      });
+      var BoardList = React.createClass({
+        render: function() {
+          return (
+              <div className="board_list">a</div>
+            );
+        }
+      });
+      var BoardContents = React.createClass({
+        render: function(){
+          return (
+              <div className="board_contents">Board</div>
+            );
+        }
+      });
+
+      var MainContainer = React.createClass({
+        render : function(){
+          return(
+              // <BoardList/>
+              <BoardContents/>
+            );
+        }
+      });
+      var Container = React.createClass({
+        render : function(){
+          return(
+              <div>
+                <Navigation />
+                <MainContainer />
+              </div>
+            );
+        }
+      });
+
+      ReactDOM.render(
+        <Container />,
+        document.getElementById('container')
+      );
+   </script>
+
+  </body>
+</html>
